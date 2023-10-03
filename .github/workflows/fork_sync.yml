@@ -54,6 +54,8 @@ jobs:
 
       - name: Check Tags for Releases
         run: |
+          echo "Current Repository: $GITHUB_REPOSITORY"
+          gh repo view --web
           tags=$(git ls-remote --tags --refs | cut -f2 | sed 's/refs\/tags\///')
           releases=$(gh release list --exclude-drafts --limit 1000)
 
